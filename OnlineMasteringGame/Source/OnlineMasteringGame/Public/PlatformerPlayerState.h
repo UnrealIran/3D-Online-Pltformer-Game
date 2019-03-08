@@ -16,6 +16,11 @@ class ONLINEMASTERINGGAME_API APlatformerPlayerState : public APlayerState
 
 public:
 	APlatformerPlayerState();
+	UFUNCTION(BlueprintCallable, Category = "Player State")
+		void CollectCoin();
+
+	UFUNCTION(BlueprintCallable, Category = "Player State")
+		void CollectHeart();
 
 protected:
 	UPROPERTY(Replicated, VisibleAnywhere, BlueprintReadOnly, Category = "Platformer playe State")
@@ -29,7 +34,6 @@ protected:
 
 	UPROPERTY(Replicated, EditDefaultsOnly, BlueprintReadOnly, Category = "Platformer playe State")
 		int MaxHealth;
-
 
 
 

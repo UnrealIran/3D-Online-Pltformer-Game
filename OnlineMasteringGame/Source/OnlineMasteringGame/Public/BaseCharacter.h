@@ -33,6 +33,11 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "BaseCharcter")
 		class USpringArmComponent* SpringArm;
 
+	UFUNCTION(BlueprintCallable, Category = "Base Charcter")
+		void CollectCoin();
+
+	UFUNCTION(BlueprintCallable, Category = "Base Charcter")
+		void CollectHeart();
 public:
 
 	void MoveForward(float amount);

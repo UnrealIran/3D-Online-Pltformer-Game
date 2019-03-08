@@ -13,6 +13,17 @@ APlatformerPlayerState::APlatformerPlayerState()
 
 }
 
+void APlatformerPlayerState::CollectCoin()
+{
+	NumberOfCoinsCollected += 1;
+}
+
+void APlatformerPlayerState::CollectHeart()
+{
+	CurrentHealth += 1;
+	CurrentHealth = FMath::Clamp(CurrentHealth, 0, MaxHealth);
+}
+
 void APlatformerPlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);

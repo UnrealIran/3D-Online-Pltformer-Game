@@ -3,7 +3,10 @@
 #include "BaseCharacter.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "Camera/CameraComponent.h"
+#include "PlatformerPlayerState.h"
+#include "GameFramework/PlayerState.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ABaseCharacter::ABaseCharacter()
@@ -117,5 +120,24 @@ void ABaseCharacter::ChangeCamerahight(float amount)
 
 		rot = FVector(0, originalHeight, rot.Z);
 		SpringArm->SetWorldRotation(FQuat::MakeFromEuler(rot));
+	}
+
+}
+void ABaseCharacter::CollectCoin()
+{
+	
+
+	APlatformerPlayerState* PS = Cast<APlatformerPlayerState>(GetPlayerState());
+	if (PS) {
+		PS->CollectCoin();
+	}
+
+}
+
+void ABaseCharacter::CollectHeart()
+{
+	APlatformerPlayerState* PS = Cast<APlatformerPlayerState>(GetPlayerState());
+	if (PS) {
+		PS->CollectHeart();
 	}
 }
